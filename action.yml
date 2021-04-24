@@ -1,0 +1,20 @@
+name: "Stack cache"
+author: "freckle"
+description: "Caching Action for Stack-based Haskell projects"
+runs:
+  using: "node12"
+  main: "dist/restore/index.js"
+  post: "dist/save/index.js"
+  post-if: "success()"
+inputs:
+  stack-yaml:
+    description: "Path to stack.yaml"
+    required: true
+    default: "stack.yaml"
+  working-directory:
+    description: "Directory within which to run and save"
+    required: true
+    default: "."
+outputs:
+  cache-hit:
+    description: "A boolean value to indicate an exact match was found for the primary key"

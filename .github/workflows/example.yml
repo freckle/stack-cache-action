@@ -1,0 +1,28 @@
+name: Example
+
+on:
+  pull_request:
+  push:
+    branches: main
+
+defaults:
+  run:
+    working-directory: example
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: stack-cache
+        uses: ./
+        with:
+          working-directory: example
+      - name: Build
+        run: |
+          echo "cache-hit: ${{steps.stack-cache.outputs.cache-hit}}"
+          find .
+          mkdir -p ~/.stack ./.stack-work ./package/.stack-work
+          echo "An artifact" > ~/.stack/artifact
+          echo "An artifact" > ./.stack-work/artifact
+          echo "An artifact" > ./package/.stack-work/artifact
