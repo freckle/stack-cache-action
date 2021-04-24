@@ -1,0 +1,8 @@
+restylers:
+  - clang-format:
+      enabled: false
+  - prettier:
+      include:
+        - "**/*.js"
+        - "!dist/**.*"
+  - "*"
