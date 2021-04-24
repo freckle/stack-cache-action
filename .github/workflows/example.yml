@@ -1,0 +1,41 @@
+name: Example usage of stack-cache-action
+
+on:
+  pull_request:
+  push:
+    branches: main
+
+defaults:
+  run:
+    working-directory: example
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          echo "Pre-restore:"
+          find .
+
+      - id: stack-cache
+        uses: .
+        with:
+          working-directory: example
+
+      - run: |
+          echo "Post-restore:"
+          echo "cache-hit: ${{steps.stack-cache.outputs.cache-hit}}"
+          find .
+
+      - run: |
+         echo "Simulating build/test..."
+         mkdir -p ~/.stack
+         echo "An artifact" > ~/.stack/artifact
+
+         mkdir -p ./.stack-work
+         echo "An artifact" > ./.stack-work/artifact
+
+      - run: |
+          echo "Post-build:"
+          find .

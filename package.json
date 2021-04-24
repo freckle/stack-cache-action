@@ -1,0 +1,52 @@
+{
+  "name": "stack-cache-action",
+  "version": "1.0.0",
+  "description": "Caching Action for Stack-based Haskell projects",
+  "scripts": {
+    "build": "ncc build src/save.js --out dist/save --minify && ncc build src/restore.js --out dist/restore --minify",
+    "test": "mocha",
+    "lint": "eslint . --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint . --no-error-on-unmatched-pattern --fix"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "keywords": [
+    "github",
+    "action",
+    "yarn",
+    "install",
+    "cache"
+  ],
+  "author": "freckle",
+  "license": "MIT",
+  "//dependencies": {},
+  "dependencies": {
+    "@actions/cache": "^0.2.1",
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@actions/glob": "^0.1.1",
+    "crypto": "^1.0.1",
+    "md5-file": "^5.0.0"
+  },
+  "//devDependencies": {
+    "eslint*": "code style",
+    "pre-commit": "run scripts before each commit",
+    "prettier": "code formatting"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "mocha": "^8.3.2",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.19.1"
+  },
+  "engines": {
+    "npm": ">=6.6"
+  }
+}
