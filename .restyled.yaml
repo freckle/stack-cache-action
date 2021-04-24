@@ -1,8 +1,10 @@
+exclude:
+  - "**/*.patch"
+  - "**/node_modules/**/*"
+  - "**/vendor/**/*"
+  - ".github/workflows/**/*"
+  - "dist/**/*" # TODO: add to Restyled-proper
 restylers:
   - clang-format:
       enabled: false
-  - prettier:
-      include:
-        - "**/*.js"
-        - "!dist/**/*"
   - "*"
