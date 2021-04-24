@@ -1,28 +1,28 @@
 # Stack Cache Action
 
+Cache step for Stack-based Haskell projects on GitHub Actions.
+
 ## Usage
 
 ```yml
 uses: freckle/stack-cache-action@main
 ```
 
-Is equivalent to:
+## Behavior
 
-```yml
-- uses: actions/cache@v1
-  with:
-    path: |
-      ~/.stack
-      ./.stack-work
-    key: ${{ runner.os }}-${{ hashFiles('stack.yaml') }}-${{ hashFiles('*.cabal') }}
-    restore-keys: |
-      ${{ runner.os }}-${{ hashFiles('stack.yaml') }}-
-      ${{ runner.os }}-
-```
+1. Restores/saves `~/.stack` and *all* `.stack-work` directories, as determined
+   by the location of `.cabal` and `package.yaml` files
+
+1. Includes a hash of all source files in the cache key, so a new cache will be
+   saved even if the dependencies haven't changed. This prevents re-compilation
+   of un-changed modules in later builds.
+
+1. Falls back to same resolver/dependencies, then same resolver (but no further)
 
 ## Inputs
 
-_TODO_
+- `stack-yaml`: Path to your `stack.yaml` file
+- `working-directory`: Useful in monorepositories
 
 ## Outputs
 
