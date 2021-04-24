@@ -7,4 +7,6 @@ exclude:
 restylers:
   - clang-format:
       enabled: false
+  - prettier:
+      image: restyled/restyler-prettier:v1.19.1-2
   - "*"
