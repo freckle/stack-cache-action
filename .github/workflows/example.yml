@@ -19,7 +19,7 @@ jobs:
           find .
 
       - id: stack-cache
-        uses: .
+        uses: ./
         with:
           working-directory: example
 
