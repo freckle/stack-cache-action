@@ -4,5 +4,5 @@ restylers:
   - prettier:
       include:
         - "**/*.js"
-        - "!dist/**.*"
+        - "!dist/**/*"
   - "*"
