@@ -10,7 +10,7 @@ uses: freckle/stack-cache-action@main
 
 ## Behavior
 
-1. Restores/saves `~/.stack` and *all* `.stack-work` directories, as determined
+1. Restores/saves `~/.stack` and _all_ `.stack-work` directories, as determined
    by the location of `.cabal` and `package.yaml` files
 
 1. Includes a hash of all source files in the cache key, so a new cache will be
