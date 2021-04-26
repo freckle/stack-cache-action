@@ -4,7 +4,6 @@ const inputs = require("./inputs.js");
 const state = require("./state.js");
 
 async function run() {
-  const stackYaml = inputs.getStackYaml();
   const workingDirectory = inputs.getWorkingDirectory();
   process.chdir(workingDirectory);
 

@@ -1,8 +1,11 @@
-const core = require("@actions/core");
 const path = require("path");
 const utils = require("./utils.js");
 
 const MANIFEST_PATTERNS = ["**/*.cabal", "**/package.yaml"];
+
+async function getManifestPaths() {
+  return utils.globAll(MANIFEST_PATTERNS);
+}
 
 async function getCacheKeys(stackYaml) {
   const os = await utils.uname();
@@ -18,10 +21,6 @@ async function getCacheKeys(stackYaml) {
     `${os}-${lockHash}-${manifestHash}-`,
     `${os}-${lockHash}-`,
   ];
-}
-
-async function getManifestPaths() {
-  return utils.globAll(MANIFEST_PATTERNS);
 }
 
 module.exports = {
