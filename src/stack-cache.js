@@ -1,5 +1,6 @@
 const path = require("path");
 const utils = require("./utils.js");
+const inputs = require("./inputs.js");
 
 const MANIFEST_PATTERNS = ["**/*.cabal", "**/package.yaml"];
 
@@ -9,6 +10,7 @@ async function getManifestPaths() {
 
 module.exports = {
   getCacheKeys: async stackYaml => {
+    const prefix = inputs.getPrefix();
     const os = await utils.uname();
     const lockPath = `${stackYaml}.lock`;
     const lockHash = await utils.hashFiles([lockPath]);
@@ -18,9 +20,9 @@ module.exports = {
     const sourceHash = await utils.hashFiles(gitLsFiles.split("\n"));
 
     return [
-      `${os}-${lockHash}-${manifestHash}-${sourceHash}`,
-      `${os}-${lockHash}-${manifestHash}-`,
-      `${os}-${lockHash}-`,
+      `${prefix}${os}-${lockHash}-${manifestHash}-${sourceHash}`,
+      `${prefix}${os}-${lockHash}-${manifestHash}-`,
+      `${prefix}${os}-${lockHash}-`,
     ];
   },
 

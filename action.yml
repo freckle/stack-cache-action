@@ -15,6 +15,10 @@ inputs:
     description: "Directory within which to run and save"
     required: true
     default: "."
+  prefix:
+    description: "A prefix to include on keys; useful for cache busting or versioning"
+    required: false
+    default: ""
 outputs:
   cache-hit:
     description: "A boolean value to indicate an exact match was found for the primary key"

@@ -1,7 +1,10 @@
 const core = require("@actions/core");
 const path = require("path");
 const process = require("process");
+const inputs = require("./inputs.js");
 const stackCache = require("./stack-cache.js");
+
+jest.mock("./inputs.js");
 
 async function inExample(fn) {
   const cwd = process.cwd();
@@ -51,6 +54,19 @@ describe("stackCache", () => {
         expect(restoreKeyParts2[0]).toBe(primaryKeyParts[0]); // os
         expect(restoreKeyParts2[1]).toBe(primaryKeyParts[1]); // lock
         expect(restoreKeyParts2[2]).toBeUndefined();
+      });
+    });
+
+    it("respects prefix inputs", async () => {
+      await inExample(async () => {
+        const prefix = "some-prefix-";
+        inputs.getPrefix.mockReturnValue(prefix);
+        const prefixedKeys = await stackCache.getCacheKeys("stack.yaml");
+
+        inputs.getPrefix.mockReturnValue("");
+        const keys = await stackCache.getCacheKeys("stack.yaml");
+
+        expect(prefixedKeys).toEqual(keys.map(key => prefix + key));
       });
     });
   });
