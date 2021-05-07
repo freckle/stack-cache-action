@@ -1,11 +1,10 @@
 const core = require("@actions/core");
 
 module.exports = {
-  getStackYaml: () => {
-    return core.getInput("stack-yaml", { required: true });
-  },
+  getStackYaml: () => core.getInput("stack-yaml", { required: true }),
 
-  getWorkingDirectory: () => {
-    return core.getInput("working-directory", { required: true });
-  },
+  getWorkingDirectory: () =>
+    core.getInput("working-directory", { required: true }),
+
+  getPrefix: () => core.getInput("prefix", { required: false }),
 };
