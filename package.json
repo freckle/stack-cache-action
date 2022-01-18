@@ -33,7 +33,7 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.4.1",
-    "jest": "^26.6.3",
+    "jest": "^27.4.7",
     "prettier": "^1.19.1"
   },
   "engines": {
