@@ -30,7 +30,7 @@
     "@zeit/ncc": "^0.22.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^4.2.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^26.6.3",
