@@ -3,5 +3,6 @@
 // If possible, settings should be kept in 1 place (i.e. `eslintrc`)
 // But in some cases ESLing and Prettier confuse eachother
 module.exports = {
+  arrowParens: "avoid",
   trailingComma: "es5", // Makes diffs nicer
 }

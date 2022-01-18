@@ -20,13 +20,9 @@ async function readProcess(cmd, args = []) {
 }
 
 module.exports = {
-  uname: async () => {
-    return readProcess("uname");
-  },
+  uname: async () => readProcess("uname"),
 
-  git: async (cmd, args = []) => {
-    return readProcess("git", [cmd].concat(args));
-  },
+  git: async (cmd, args = []) => readProcess("git", [cmd].concat(args)),
 
   globAll: async patterns => {
     const globber = await glob.create(patterns.join("\n"));
