@@ -34,5 +34,6 @@ module.exports = {
       },
     ],
     "import/no-anonymous-default-export": "error",
+    "import/extensions": ["error", "always"],
   },
 };
