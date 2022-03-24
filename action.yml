@@ -22,7 +22,7 @@ inputs:
   always-store:
     description: "If true, will execute the post-run cache action whether or not prior steps are successful"
     required: false
-    default: 'true'
+    default: "true"
 outputs:
   cache-hit:
     description: "A boolean value to indicate an exact match was found for the primary key"
