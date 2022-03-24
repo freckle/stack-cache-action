@@ -5,7 +5,7 @@ runs:
   using: "node12"
   main: "dist/restore/index.js"
   post: "dist/save/index.js"
-  post-if: "failure()"
+  post-if: success() || (inputs.always-store == 'true' && failure())
 inputs:
   stack-yaml:
     description: "Path to stack.yaml"
