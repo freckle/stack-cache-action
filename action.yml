@@ -5,7 +5,7 @@ runs:
   using: "node12"
   main: "dist/restore/index.js"
   post: "dist/save/index.js"
-  post-if:  inputs.always-store == "true" || success()
+  post-if: "success() || inputs.always-store == 'true'"
 inputs:
   stack-yaml:
     description: "Path to stack.yaml"
@@ -22,7 +22,7 @@ inputs:
   always-store:
     description: "If true, will execute the post-run cache action whether or not prior steps are successful"
     required: false
-    default: "true"
+    default: 'true'
 outputs:
   cache-hit:
     description: "A boolean value to indicate an exact match was found for the primary key"
