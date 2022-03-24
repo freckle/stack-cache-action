@@ -24,6 +24,7 @@ uses: freckle/stack-cache-action@main
 - `stack-yaml`: Path to your `stack.yaml` file
 - `working-directory`: Useful in monorepositories
 - `prefix`: A prefix to include on keys; useful for cache busting or versioning
+- `always-store`: (Optional: defaults `true`) If true, will execute the post-run cache action whether or not prior steps are successful
 
 ## Outputs
 
