@@ -28,4 +28,5 @@ jobs:
           echo "An artifact" > ./package/.stack-work/artifact
       - name: Fail to ensure we're still caching when `always-store` is set
         run: |
+          echo 'ping'
           exit 1
