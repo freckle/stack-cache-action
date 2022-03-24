@@ -26,3 +26,6 @@ jobs:
           echo "An artifact" > ~/.stack/artifact
           echo "An artifact" > ./.stack-work/artifact
           echo "An artifact" > ./package/.stack-work/artifact
+      - name: Fail to ensure we're still caching when `always-store` is set
+        run: |
+          exit 1
