@@ -1,6 +1,6 @@
 ## [_Unreleased_](https://github.com/freckle/hspec-junit-formatter/compare/v1.0.1...main)
 
-None
+- Always store cache regardless of build status
 
 ## [v1.0.1](https://github.com/freckle/hspec-junit-formatter/compare/v1.0.0...v1.0.1)
 
