@@ -1,6 +1,6 @@
 ## [_Unreleased_](https://github.com/freckle/hspec-junit-formatter/compare/v1.0.1...main)
 
-- Add input to allow post action step to run even when prior steps fail
+None
 
 ## [v1.0.1](https://github.com/freckle/hspec-junit-formatter/compare/v1.0.0...v1.0.1)
 
