@@ -24,7 +24,7 @@
     "@actions/glob": "^0.2.1",
     "crypto": "^1.0.1",
     "md5-file": "^5.0.0",
-    "yaml": "^1.10.2"
+    "yaml": "^2.0.0"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.22.3",
