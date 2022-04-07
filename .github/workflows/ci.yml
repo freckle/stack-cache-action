@@ -5,18 +5,14 @@ on:
   push:
     branches: main
 
-env:
-  node_version: "12.x"
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
-        node-version: ${{ env.node_version }}
-    - uses: c-hive/gha-yarn-cache@v1
+        cache: yarn
     - run: yarn install
     - run: yarn lint
     - run: yarn test
