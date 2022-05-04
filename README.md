@@ -29,6 +29,10 @@ uses: freckle/stack-cache-action@main
 
 - `cache-hit`: indicates a full cache hit on the primary key
 
+## Further Reading
+
+See https://tech.freckle.com/2021/05/18/haskell-on-actions/ for a short tutorial.
+
 ## Acknowledgements
 
 The idea and initial repository skeleton was taken from [gha-yarn-cache][].
