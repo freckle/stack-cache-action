@@ -5,7 +5,7 @@ Cache step for Stack-based Haskell projects on GitHub Actions.
 ## Usage
 
 ```yml
-uses: freckle/stack-cache-action@main
+uses: freckle/stack-cache-action@v2
 ```
 
 ## Behavior
