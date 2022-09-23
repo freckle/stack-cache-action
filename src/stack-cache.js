@@ -6,11 +6,11 @@ const inputs = require("./inputs.js");
 
 const MANIFEST_PATTERNS = ["**/*.cabal", "**/package.yaml"];
 
-async function getLockOrSelf(path) {
-  const paths = await utils.globAll([`${path}.lock`, path]);
+async function getLockOrSelf(p) {
+  const paths = await utils.globAll([`${p}.lock`, p]);
 
   if (paths === null || paths === undefined || paths.length === 0) {
-    throw new Error(`Neither ${path}.lock nor ${path} exist`);
+    throw new Error(`Neither ${p}.lock nor ${p} exist`);
   }
 
   return paths[0];
@@ -27,7 +27,7 @@ function unique(items) {
 module.exports = {
   getCacheKeys: async stackYaml => {
     const prefix = inputs.getPrefix();
-    const os = await utils.uname();
+    const uname = await utils.uname();
     const lockPath = await getLockOrSelf(stackYaml);
     const lockHash = await utils.hashFiles([lockPath]);
     const manifestPaths = await getManifestPaths();
@@ -36,9 +36,9 @@ module.exports = {
     const sourceHash = await utils.hashFiles(gitLsFiles.split("\n"));
 
     return [
-      `${prefix}${os}-${lockHash}-${manifestHash}-${sourceHash}`,
-      `${prefix}${os}-${lockHash}-${manifestHash}-`,
-      `${prefix}${os}-${lockHash}-`,
+      `${prefix}${uname}-${lockHash}-${manifestHash}-${sourceHash}`,
+      `${prefix}${uname}-${lockHash}-${manifestHash}-`,
+      `${prefix}${uname}-${lockHash}-`,
     ];
   },
 
