@@ -1,5 +1,6 @@
 const os = require("os");
 const path = require("path");
+const process = require("process");
 const utils = require("./utils.js");
 const inputs = require("./inputs.js");
 
@@ -17,6 +18,10 @@ async function getLockOrSelf(path) {
 
 async function getManifestPaths() {
   return utils.globAll(MANIFEST_PATTERNS);
+}
+
+function unique(items) {
+  return Array.from(new Set(items));
 }
 
 module.exports = {
@@ -38,11 +43,18 @@ module.exports = {
   },
 
   getPaths: async () => {
+    // All of these need to be cached:
+    //
+    // - ~/.stack
+    // - ./.stack-work
+    // - ./{package}/.stack-work
+    //
     const manifestPaths = await getManifestPaths();
     const stackHome = path.join(os.homedir(), ".stack");
+    const stackWork = path.join(process.cwd(), ".stack-work");
     const stackWorks = manifestPaths.map(p =>
       path.join(path.dirname(p), ".stack-work")
     );
-    return [stackHome].concat(stackWorks);
+    return unique([stackHome, stackWork].concat(stackWorks));
   },
 };
