@@ -80,8 +80,8 @@ describe("stackCache", () => {
         const cachePaths = await stackCache.getPaths();
         expect(cachePaths).toStrictEqual([
           path.join(home, ".stack"),
-          path.join(cwd, "package", ".stack-work"),
           path.join(cwd, ".stack-work"),
+          path.join(cwd, "package", ".stack-work"),
         ]);
       });
     });
