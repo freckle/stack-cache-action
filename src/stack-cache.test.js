@@ -1,4 +1,5 @@
 const core = require("@actions/core");
+const os = require("os");
 const path = require("path");
 const process = require("process");
 const inputs = require("./inputs.js");
@@ -75,7 +76,7 @@ describe("stackCache", () => {
     it("stackCache.getPaths returns all artifact paths", async () => {
       await inExample(async () => {
         const cwd = process.cwd();
-        const home = process.env.HOME;
+        const home = os.homedir();
         const cachePaths = await stackCache.getPaths();
         expect(cachePaths).toStrictEqual([
           path.join(home, ".stack"),
