@@ -1,3 +1,4 @@
+const os = require("os");
 const path = require("path");
 const utils = require("./utils.js");
 const inputs = require("./inputs.js");
@@ -38,7 +39,7 @@ module.exports = {
 
   getPaths: async () => {
     const manifestPaths = await getManifestPaths();
-    const stackHome = path.join(process.env.HOME, ".stack");
+    const stackHome = path.join(os.homedir(), ".stack");
     const stackWorks = manifestPaths.map(p =>
       path.join(path.dirname(p), ".stack-work")
     );
