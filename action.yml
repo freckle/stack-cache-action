@@ -2,7 +2,7 @@ name: "Stack cache"
 author: "freckle"
 description: "Caching Action for Stack-based Haskell projects"
 runs:
-  using: "node12"
+  using: "node16"
   main: "dist/restore/index.js"
   post: "dist/save/index.js"
   post-if: "success()"
