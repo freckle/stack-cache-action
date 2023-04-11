@@ -2,6 +2,10 @@
 
 Cache step for Stack-based Haskell projects on GitHub Actions.
 
+**NOTE**: if you are using `freckle/stack-action@v4` or newer, you do not
+need this action as its own step. That version of that action handles all
+caching internally, and better.
+
 ## Usage
 
 ```yml
