@@ -1,6 +1,6 @@
 ## [_Unreleased_](https://github.com/freckle/stack-cache-action/compare/v2.0.0...main)
 
-None
+- Always store cache regardless of build status
 
 ## [v2.0.0](https://github.com/freckle/stack-cache-action/compare/v1.0.1...v2.0.0)
 
