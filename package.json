@@ -5,8 +5,10 @@
   "scripts": {
     "build": "ncc build src/save.js --out dist/save --minify && ncc build src/restore.js --out dist/restore --minify",
     "test": "jest",
-    "lint": "eslint . --no-error-on-unmatched-pattern",
-    "lint:fix": "eslint . --no-error-on-unmatched-pattern --fix"
+    "eslint": "eslint --ext \"js,ts,jsx,tsx\" ./src",
+    "prettier": "prettier \"src/**/*.js\"",
+    "lint": "yarn prettier --check && yarn eslint",
+    "lint:fix": "yarn prettier --write && yarn eslint --fix"
   },
   "keywords": [
     "github",
@@ -18,21 +20,16 @@
   "author": "freckle",
   "license": "MIT",
   "dependencies": {
-    "@actions/cache": "^4.0.1",
+    "@actions/cache": "^4.0.2",
     "@actions/core": "^1.11.1",
     "@actions/exec": "^1.1.1",
     "@actions/glob": "^0.5.0",
-    "crypto": "^1.0.1",
     "md5-file": "^5.0.0",
     "yaml": "^2.7.0"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.22.3",
+    "@vercel/ncc": "^0.38.3",
     "eslint": "^9.21.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-prettier": "^5.2.3",
     "jest": "^29.7.0",
     "prettier": "^3.5.2"
   },
