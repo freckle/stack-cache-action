@@ -31,7 +31,7 @@
     "@vercel/ncc": "^0.38.4",
     "eslint": "^9.37.0",
     "jest": "^30.0.5",
-    "prettier": "^3.5.3"
+    "prettier": "^3.6.2"
   },
   "engines": {
     "npm": ">=6.14.6"
