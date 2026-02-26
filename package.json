@@ -23,7 +23,7 @@
     "@actions/cache": "^6.0.0",
     "@actions/core": "^2.0.3",
     "@actions/exec": "^2.0.0",
-    "@actions/glob": "^0.5.1",
+    "@actions/glob": "^0.6.1",
     "md5-file": "^5.0.0",
     "yaml": "^2.8.2"
   },

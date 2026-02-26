@@ -47,14 +47,6 @@
   dependencies:
     "@actions/io" "^3.0.2"
 
-"@actions/glob@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@actions/glob/-/glob-0.5.1.tgz#606d8aa6b9bd5205e50e79c3da33709d65307cb6"
-  integrity sha512-+dv/t2aKQdKp9WWSp+1yIXVJzH5Q38M0Mta26pzIbeec14EcIleMB7UU6N7sNgbEuYfyuVGpE5pOKjl6j1WXkA==
-  dependencies:
-    "@actions/core" "^2.0.3"
-    minimatch "^3.0.4"
-
 "@actions/glob@^0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@actions/glob/-/glob-0.6.1.tgz#4820bfd86175dd98cd63d3d557e47bb09a21c7d0"
