@@ -1,10 +1,6 @@
 name: "Stack cache"
 author: "freckle"
 description: "Caching Action for Stack-based Haskell projects"
-runs:
-  using: "node16"
-  main: "dist/restore/index.js"
-  post: "dist/save/index.js"
 inputs:
   stack-yaml:
     description: "Path to stack.yaml"
@@ -18,6 +14,17 @@ inputs:
     description: "A prefix to include on keys; useful for cache busting or versioning"
     required: false
     default: ""
-outputs:
-  cache-hit:
-    description: "A boolean value to indicate an exact match was found for the primary key"
+runs:
+  using: "composite"
+  steps:
+    - uses: freckle/stack-action@v5
+      env:
+        STACK_YAML: ${{ inputs.stack-yaml }}
+      with:
+        working-directory: ${{ inputs.working-directory }}
+        cache-prefix: ${{ inputs.cache-prefix }}
+
+        # Avoid other stack-action behavior, as much as we can
+        stack-build-arguments: --dry-run
+        install-stack: false
+        upgrade-stack: false
