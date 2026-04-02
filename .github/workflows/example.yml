@@ -20,7 +20,6 @@ jobs:
           working-directory: example
       - name: Build
         run: |
-          echo "cache-hit: ${{steps.stack-cache.outputs.cache-hit}}"
           find .
           mkdir -p ~/.stack ./.stack-work ./package/.stack-work
           echo "An artifact" > ~/.stack/artifact

@@ -2,14 +2,28 @@
 
 Cache step for Stack-based Haskell projects on GitHub Actions.
 
-**NOTE**: if you are using `freckle/stack-action@v4` or newer, you do not
-need this action as its own step. That version of that action handles all
-caching internally, and better.
+> [!NOTE]
+>
+> As of `@v3`, this action is a `composite` pass-through to `stack-action`:
+>
+> ```yaml
+> - uses: freckle/stack-action@v6
+>   env:
+>     STACK_YAML: ${{ inputs.stack-yaml }}
+>   with:
+>     working-directory: ${{ inputs.working-directory }}
+>     cache-prefix: ${{ inputs.prefix }}
+>     stack-build-arguments: --dry-run
+>     install-stack: false
+>     upgrade-stack: false
+> ```
+>
+> You could consider replacing use of this action with that directly.
 
 ## Usage
 
 ```yml
-uses: freckle/stack-cache-action@v2
+uses: freckle/stack-cache-action@v3
 ```
 
 ## Behavior
@@ -28,10 +42,6 @@ uses: freckle/stack-cache-action@v2
 - `stack-yaml`: Path to your `stack.yaml` file
 - `working-directory`: Useful in monorepositories
 - `prefix`: A prefix to include on keys; useful for cache busting or versioning
-
-## Outputs
-
-- `cache-hit`: indicates a full cache hit on the primary key
 
 ## Further Reading
 
